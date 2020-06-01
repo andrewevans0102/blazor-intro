@@ -1,0 +1,77 @@
+﻿
+@page "/"
+@using BlazorServer.Data
+@inject BlazorServer.Data.VendingMachineService VendingMachineService
+
+<div class="wrapper">
+    <h1 class="title">Hello Blazor Vending Machine!</h1>
+
+    @if (drinks == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <section class="machine">
+            @foreach (var drink in drinks)
+            {
+                @if (drink.name == selection)
+                {
+                    <a href="" class="selected" @onclick="@(e => setDrink(@drink.name))">
+                        @drink.name: @drink.cost
+                    </a>
+                }
+                else
+                {
+                    <a href="" class="drinks" @onclick="@(e => setDrink(@drink.name))">
+                        @drink.name: @drink.cost
+                    </a>
+                }
+            }
+
+            <article class="money">
+                <article class="money-input">
+                    <span class="cash">
+                        <input placeholder="cash" @bind="@money" />
+                    </span>
+                </article>
+                <button class="machine-button" @onclick="@(e => vend())">vend</button>
+            </article>
+        </section>
+        @if (message != "")
+        {
+            <span class="message">@message</span>
+        }
+    }
+</div>
+
+@code {
+
+    private string money = "0";
+    private string selection = "drink";
+    private string message = "";
+    private Drink[] drinks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        drinks = (VendingMachineService.RetrieveDrinks().Result).ToArray();
+    }
+
+    public void setDrink(string drink)
+    {
+        this.selection = drink;
+    }
+
+    public async Task vend()
+    {
+        this.message = "";
+        this.message = await VendingMachineService.DispenseDrinks(this.selection, this.money);
+    }
+
+    public class DrinkSelected
+    {
+        public string name { get; set; }
+        public string cash { get; set; }
+    }
+}
+

@@ -1,0 +1,116 @@
+﻿.machine {
+    display: flex;
+    flex-direction: column;
+    background-color: #6610f2;
+    color: white;
+    width: 400px;
+    border: solid black;
+    justify-content: center;
+    border-radius: 40px;
+    align-items: center;
+}
+
+.drinks {
+    display: flex;
+    justify-content: center;
+    border: solid white;
+    width: 250px;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+    .drinks:hover {
+        color: pink;
+        text-decoration: none;
+    }
+
+.selected {
+    display: flex;
+    justify-content: center;
+    border: solid yellow;
+    width: 250px;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 25px;
+    border-radius: 40px;
+    text-decoration: none;
+}
+
+    .selected:hover {
+        color: orange;
+        text-decoration: none;
+    }
+
+.money {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 20px;
+    width: 200px;
+}
+
+.money-input {
+    display: flex;
+    justify-content: center;
+}
+
+.cash {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    color: white;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 0;
+}
+
+    .cash::before {
+        content: "$";
+    }
+
+    .cash input {
+        display: flex;
+        background-color: green;
+        color: white;
+        width: 40px;
+        height: 40px;
+    }
+
+.machine-button {
+    background-color: blue;
+    color: white;
+    margin-top: 20px;
+    border-radius: 40px;
+    font-size: 20px;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    margin-top: 20px;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border: solid blue;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
