@@ -1,6 +1,7 @@
 # blazor-intro
 
 ![](blazor-webassembly.png)
+
 _[image source](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.1)_
 
 This project has the samples I reference in my LogRocket post on Blazor.
